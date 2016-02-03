@@ -27,6 +27,12 @@ var Player = (function (_super) {
         //Sync Viewport with Screen
         scene.viewport.position.x = this.position.x - (scene.viewport.width / 2);
         scene.viewport.position.y = this.position.y - (scene.viewport.height / 2);
+        if (this.hp < 0) {
+            this.lives -= 1;
+            if (this.lives == 0) {
+                scene.destroy(this);
+            }
+        }
     };
     return Player;
 }(ship_1.Ship));

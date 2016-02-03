@@ -8,6 +8,8 @@ export class Player extends Ship {
   constructor(public team = 0, public position: { x: number, y: number }) {
     super(team, position);
   }
+
+
   update(scene: Scene, input: Input, deltaTime:number) {
     super.update(scene, input, deltaTime);
 
@@ -25,5 +27,14 @@ export class Player extends Ship {
     //Sync Viewport with Screen
     scene.viewport.position.x = this.position.x - (scene.viewport.width / 2);
     scene.viewport.position.y = this.position.y - (scene.viewport.height / 2);
+
+
+    if (this.hp < 0) {
+      this.lives -=1;
+      if(this.lives == 0){
+        scene.destroy(this);
+      }
+    }
+
   }
 }
