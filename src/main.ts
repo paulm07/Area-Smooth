@@ -10,6 +10,8 @@ function start() {
   document.getElementById('game').appendChild(renderer.canvas);
 }
 
+// Testing for changes - Paul
+
 function createScene() {
 
   renderer.scene.add(new Background());

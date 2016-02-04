@@ -9,6 +9,7 @@ function start() {
     renderer = new renderer_1.Renderer();
     document.getElementById('game').appendChild(renderer.canvas);
 }
+// Testing for changes - Paul
 function createScene() {
     renderer.scene.add(new background_1.Background());
     createPlayer();
