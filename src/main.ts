@@ -1,5 +1,4 @@
 import {Renderer} from './lib/renderer';
-
 import {Background} from './menu/background';
 //import {Menu} from './menu/menu';
 import {Player} from './ships/player';
@@ -26,12 +25,13 @@ function createScene() {
 }
 
 function animate() {
+
   renderer.update();
   renderer.render();
   requestAnimationFrame(animate);
 }
 
-function createPlayer(){
+function createPlayer() {
   renderer.scene.add(new Player(0, {
     x: Math.floor(Math.random() * renderer.scene.width),
     y: Math.floor(Math.random() * renderer.scene.height)

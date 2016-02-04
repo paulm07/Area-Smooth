@@ -14,12 +14,22 @@ var Enemy = (function (_super) {
         this.team = team;
         this.position = position;
         this.timer = 0;
+        this.hp = 10;
     }
     Enemy.prototype.update = function (scene, i, deltaTime) {
+        var _this = this;
         _super.prototype.update.call(this, scene, i, deltaTime);
         this.timer -= deltaTime;
         this.moving = true;
         this.shooting = true;
+        scene.array.map(function (o) {
+            if (_this.isColliding(o)) {
+                if ("team" in o)
+                    if (o.team !== _this.team && typeof o != 'bullet') {
+                        o.hp -= 10;
+                    }
+            }
+        });
         if (this.timer < 0)
             this.changeTarget(scene);
         if (this.hp < 0) {

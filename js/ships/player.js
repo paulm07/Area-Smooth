@@ -16,6 +16,7 @@ var Player = (function (_super) {
         this.hp = 100;
     }
     Player.prototype.update = function (scene, input, deltaTime) {
+        var _this = this;
         _super.prototype.update.call(this, scene, input, deltaTime);
         //Keyboard
         var l = input.getKey('ArrowLeft');
@@ -28,6 +29,14 @@ var Player = (function (_super) {
         //Sync Viewport with Screen
         scene.viewport.position.x = this.position.x - (scene.viewport.width / 2);
         scene.viewport.position.y = this.position.y - (scene.viewport.height / 2);
+        scene.array.map(function (o) {
+            if (_this.isColliding(o)) {
+                if ("team" in o)
+                    if (o.team !== _this.team && typeof o != 'bullet') {
+                        o.hp -= 5;
+                    }
+            }
+        });
         if (this.hp < 0) {
             this.lives -= 1;
             this.isDestory = true;
