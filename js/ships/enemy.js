@@ -28,7 +28,8 @@ var Enemy = (function (_super) {
     };
     Enemy.prototype.changeTarget = function (scene) {
         this.timer = Math.random();
-        var player = scene.array[1]; //scene.find('Player');
+        var index = 1;
+        var player = scene.array[index]; //scene.find('Player');
         this.nextRotation = mathex_1.MathEx.getAngleTwoPoints(this.position.x, this.position.y, player.position.x, player.position.y);
     };
     return Enemy;

@@ -21,6 +21,7 @@ export class Ship extends GameObject {
   public spdMax = 256;
   public handling = 10;
   public lives = 3;
+  public isDestory = false;
   private prevDir = 1;
 
   //Ship Guns

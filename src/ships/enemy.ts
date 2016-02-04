@@ -28,7 +28,12 @@ export class Enemy extends Ship {
 
   changeTarget(scene) {
     this.timer = Math.random();
-    var player: Player = scene.array[1];//scene.find('Player');
+    var index = 1;
+    var player: Player = scene.array[index];//scene.find('Player');
+    if (player.isDestory == true )
+    {
+      var player: Player = scene.array[index+1];
+    }
     this.nextRotation = MathEx.getAngleTwoPoints(this.position.x, this.position.y, player.position.x, player.position.y);
   }
 }

@@ -7,6 +7,7 @@ import {MathEx} from '../lib/math/mathex';
 export class Player extends Ship {
   constructor(public team = 0, public position: { x: number, y: number }) {
     super(team, position);
+    this.hp = 100;
   }
 
 
@@ -29,12 +30,21 @@ export class Player extends Ship {
     scene.viewport.position.y = this.position.y - (scene.viewport.height / 2);
 
 
-    if (this.hp < 0) {
+    if (this.hp < 0)
+     {
       this.lives -=1;
-      if(this.lives == 0){
+      this.isDestory = true;
+      this.position.x = Math.floor(Math.random() * scene.width);
+      this.position.y = Math.floor(Math.random() * scene.height);
+      this.hp = 100
+
+      if(this.lives == 0)
+      {
         scene.destroy(this);
       }
     }
-
   }
+
+
+
 }

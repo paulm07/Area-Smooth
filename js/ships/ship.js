@@ -24,6 +24,7 @@ var Ship = (function (_super) {
         this.spdMax = 256;
         this.handling = 10;
         this.lives = 3;
+        this.isDestory = false;
         this.prevDir = 1;
         //Ship Guns
         this.gunTimer = 0;

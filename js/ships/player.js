@@ -13,6 +13,7 @@ var Player = (function (_super) {
         _super.call(this, team, position);
         this.team = team;
         this.position = position;
+        this.hp = 100;
     }
     Player.prototype.update = function (scene, input, deltaTime) {
         _super.prototype.update.call(this, scene, input, deltaTime);
@@ -29,6 +30,10 @@ var Player = (function (_super) {
         scene.viewport.position.y = this.position.y - (scene.viewport.height / 2);
         if (this.hp < 0) {
             this.lives -= 1;
+            this.isDestory = true;
+            this.position.x = Math.floor(Math.random() * scene.width);
+            this.position.y = Math.floor(Math.random() * scene.height);
+            this.hp = 100;
             if (this.lives == 0) {
                 scene.destroy(this);
             }

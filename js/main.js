@@ -11,10 +11,7 @@ function start() {
 }
 function createScene() {
     renderer.scene.add(new background_1.Background());
-    renderer.scene.add(new player_1.Player(0, {
-        x: Math.floor(Math.random() * renderer.scene.width),
-        y: Math.floor(Math.random() * renderer.scene.height)
-    }));
+    createPlayer();
     //Spawn 10 Enemies
     for (var i = 0; i < Math.floor((Math.random() * 7) + 3); i++)
         renderer.scene.add(new enemy_1.Enemy(1, {
@@ -26,6 +23,12 @@ function animate() {
     renderer.update();
     renderer.render();
     requestAnimationFrame(animate);
+}
+function createPlayer() {
+    renderer.scene.add(new player_1.Player(0, {
+        x: Math.floor(Math.random() * renderer.scene.width),
+        y: Math.floor(Math.random() * renderer.scene.height)
+    }));
 }
 start();
 createScene();
