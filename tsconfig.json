@@ -38,7 +38,6 @@
     "./src/lib/viewport.ts",
     "./src/main.ts",
     "./src/menu/background.ts",
-    "./src/menu/menu.ts",
     "./src/ships/bullet.ts",
     "./src/ships/enemy.ts",
     "./src/ships/player.ts",
